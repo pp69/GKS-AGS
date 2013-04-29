@@ -40,6 +40,19 @@ $cats['TV'] 		= array("TV HD VF", "TV HD VOSTFR", "TV PACK", "TV VF", "TV VO", "
 // ---------------------
 // DO NOT MODIFY BELOW 
 // ---------------------
+if(!$feed_url)
+{
+	echo "<h3>Installation... OK</h3><hr>";
+	exit;
+}
+else if($feed_url && !$_GET)
+{
+	echo "<h3>Installation... OK</h3><hr>";
+	echo "<h3>Configuration... OK</h3><hr>";	
+	echo "> <a href='?AIDE'>Listes des URLs à insérer dans votre client BitTorrent</a>";	
+	exit;
+}
+
 $rawFeed = file_get_contents($feed_url);
 $xml = new SimpleXmlElement($rawFeed);
 
