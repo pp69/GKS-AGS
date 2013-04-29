@@ -11,7 +11,7 @@ $feed_url = '%URL%';
 
 ``` c
 ##  .htaccess - Ligne 3 - %IP% > IP du serveur.
-allow from all %IP%
+allow from %IP%
 ```
 
 INSTALLATION
