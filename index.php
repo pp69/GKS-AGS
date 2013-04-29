@@ -3,7 +3,10 @@
 $feed_url = '';
 
 //GET = ANIME
-$cats['ANIME']   	= array("Anime");
+$cats['ANIME'] 		= array("Anime");
+
+//GET = APPS
+$cats['APPS'] 		= array("Windows", "Mac");
 
 //GET = CONCERT
 $cats['CONCERT'] 	= array("Concerts");
@@ -11,29 +14,26 @@ $cats['CONCERT'] 	= array("Concerts");
 //GET = DIVERS
 $cats['DIVERS'] 	= array("Divers");
 
+//GET = DOCS
+$cats['DOCS'] 		= array("Docs", "Docs HD");
+
 //GET = FILMS
 $cats['FILMS'] 		= array("Full BluRay", "HD 1080p", "HD 720p", "DVDR", "DVDRip/BDRip", "DVDRip/BDRip VOSTFR");
+
+//GET = EBOOKS
+$cats['EBOOKS'] 	= array("eBooks");
+
+//GET = FLAC
+$cats['FLAC'] 		= array("Flac");
+
+//GET = JEUX
+$cats['JEUX']		= array("Wii", "Xbox 360", "Nintendo DS", "PC Games", "PSP", "PSX/PS2/PS3");
 
 //GET = SPORT
 $cats['SPORT'] 		= array("Sport");
 
 //GET = TV
 $cats['TV'] 		= array("TV HD VF", "TV HD VOSTFR", "TV PACK", "TV VF", "TV VO", "TV VOSTFR", "DVDR Series", "Emissions TV");
-
-//GET = JEUX
-$cats['JEUX']		= array("Wii", "Xbox 360", "Nintendo DS", "PC Games", "PSP", "PSX/PS2/PS3");
-
-//GET = EBOOKS
-$cats['EBOOKS'] 	= array("eBooks");
-
-//GET = APPS
-$cats['APPS'] 		= array("Windows", "Mac");
-
-//GET = FLAC
-$cats['FLAC'] 		= array("Flac");
-
-//GET = DOCS
-$cats['DOCS'] 		= array("Docs", "Docs HD");
 /* =========================== CONFIG =========================== */
 
 
@@ -44,7 +44,19 @@ $rawFeed = file_get_contents($feed_url);
 $xml = new SimpleXmlElement($rawFeed);
 
 $get_cat = key($_GET);
-if(!$_GET || !in_array($get_cat, array_keys($cats)))
+if($get_cat == 'AIDE')
+{
+	echo "GKS-AGS AIDE<hr>";
+	foreach ($cats as $key => $value)
+	{
+		$valid_url = $_SERVER['REQUEST_SCHEME'] .'://'. $_SERVER['HTTP_HOST'] . str_replace('index.php', '', $_SERVER['SCRIPT_NAME']) .'?'. $key; 
+		
+		echo '<a href="' . $valid_url . '">' . $valid_url . '</a>';
+		echo '<li>' . implode('<li> ', $value).'<hr>';
+		
+	}
+}
+else if(!$_GET || !in_array($get_cat, array_keys($cats)))
 {
 	$xml->channel->title = $xml->channel->title . ' ERROR';
 	$xml->channel->image->title = $xml->channel->image->title . ' ERROR';
