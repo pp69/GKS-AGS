@@ -1,4 +1,4 @@
-GKS-AGS \ 96dd
+GKS-AGS \ 69dd
 =======
 
 CONFIGURATION
