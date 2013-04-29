@@ -22,4 +22,4 @@ Placer les deux fichiers dans un repertoire accessible en http. (ie. /var/www/ht
 UTILISATION
 -------------------------
 
-Ouvrir l'URL pointant vers le nouveau repertoire avec comme paramètre '?HELP' (ie. http://localhost/ags/?HELP) dans votre navigateur pour connaitre les nouvelles URLs à insérer dans votre client BT.
+Ouvrir l'URL pointant vers le nouveau repertoire avec comme paramètre '?AIDE' (ie. http://localhost/ags/?AIDE) dans votre navigateur pour connaitre les nouvelles URLs à insérer dans votre client BT.
