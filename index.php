@@ -49,7 +49,7 @@ else if($feed_url && !$_GET)
 {
 	echo "<h3>Installation... OK</h3><hr>";
 	echo "<h3>Configuration... OK</h3><hr>";	
-	echo "> <a href='?AIDE'>Listes des URLs à insérer dans votre client BitTorrent</a>";	
+	echo "> <a href='?AIDE'>Listes des URLs a inserer dans votre client BitTorrent</a>";	
 	exit;
 }
 
